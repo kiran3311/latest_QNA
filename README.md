@@ -31,7 +31,7 @@ Real DOM: Direct representation in the browser; expensive to update.
 
 
 
-###3. Controlled vs Uncontrolled Components
+### 3. Controlled vs Uncontrolled Components
 
 Controlled: Input values are controlled by React state.
 ```js
