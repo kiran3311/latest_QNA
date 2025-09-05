@@ -1,4 +1,4 @@
-# React JS
+# React JS 💻✔
 
 ### 1: What is React.js?
 
@@ -18,7 +18,7 @@ function App() {
   return <h1>Hello, React!</h1>;
 }
 ```
-
+---
 ### 2. Difference between Virtual DOM, Shallow DOM, and Real DOM
 
 DOM: Tree structure representing the UI in browsers.
@@ -29,7 +29,7 @@ Shallow DOM: Not a React concept, but in testing (like Enzyme) "shallow renderin
 
 Real DOM: Direct representation in the browser; expensive to update.
 
-
+---
 
 ### 3. Controlled vs Uncontrolled Components
 
@@ -45,7 +45,7 @@ const inputRef = useRef();
 <input ref={inputRef} />
 
 ```
-
+---
 
 ### 4. What are Hooks in React.js?
 
@@ -53,7 +53,7 @@ Functions introduced in React 16.8 to use state and lifecycle features inside fu
 
 Examples: useState, useEffect, useMemo, useCallback, useRef, useContext.
 
-
+---
 
 ### 5. What is JSX, Babel, Webpack?
 
@@ -63,7 +63,7 @@ Babel: JavaScript compiler that transpiles JSX and ES6+ to browser-compatible Ja
 
 Webpack: Module bundler that bundles all files (JS, CSS, images) into one optimized file.
 
-
+---
 
 ## 📌 Redux & State Management
 
@@ -73,6 +73,8 @@ Webpack: Module bundler that bundles all files (JS, CSS, images) into one optimi
 A state management library for JavaScript apps.
 Manages global state with a predictable flow using store, action, reducer.
 
+---
+
 ### 7. Reducer, Action, Store in Redux
 
 Action: Object describing what to do ({type: "ADD_TODO", payload: "Task"}).
@@ -81,7 +83,7 @@ Reducer: Pure function that takes current state + action, and returns new state.
 
 Store: Centralized object holding application state.
 
-
+---
 
 ### 8. What is Middleware in Redux?
 
@@ -89,7 +91,7 @@ Functions that run between dispatching an action and reaching the reducer.
 
 Used for logging, async calls, or modifying actions.
 
-
+---
 
 ### 9. Explain Data Flow in Redux
 
@@ -104,13 +106,13 @@ Store updates state.
 React components re-render with new state.
 
 
-
+---
 ### 10. What is Redux-Thunk?
 
 A middleware for handling async logic in Redux (like API calls).
-
 Allows actions to return a function instead of an object.
 
+---
 
 
 ### 11. What is Redux-Saga? Difference vs Redux-Thunk
@@ -124,7 +126,7 @@ Thunk → Simpler, function-based async.
 Saga → More powerful, good for handling complex async flows, retries, parallel tasks.
 
 
-
+---
 
 ## 📌 React Components & Lifecycle
 
@@ -133,9 +135,9 @@ Saga → More powerful, good for handling complex async flows, retries, parallel
 ### 12. Class vs Function Component
 
 Class: Uses class, lifecycle methods (componentDidMount), this.state.
-
 Function: Uses plain functions with hooks (useState, useEffect), simpler syntax.
 
+---
 
 ### 13. How to Implement componentWillUnmount in Function Component
 
@@ -148,7 +150,7 @@ useEffect(() => {
 }, []);
 
 ```
-
+---
 
 ### 14. useEffect, useState, useMemo, useCallback
 
@@ -160,7 +162,7 @@ useMemo: Memoize expensive calculations.
 
 useCallback: Memoize function references to prevent re-renders.
 
-
+---
 ### 15. Explain Lifecycle Methods in React.js
 
 For class components:
@@ -171,7 +173,7 @@ Updating: shouldComponentUpdate, componentDidUpdate
 
 Unmounting: componentWillUnmount
 
-
+---
 
 ### 16. Export Default vs Export
 
@@ -189,21 +191,21 @@ export const add = () => {};
 ```
 
 
-
+---
 
 ### 17. What is Portal in React.js
 
 A way to render children into a DOM node outside the parent component’s hierarchy.
 Example: Modals, Tooltips.
 
-
+---
 
 ### 18. What is Reconciliation in React.js
 
 Process where React compares new virtual DOM with old virtual DOM using diffing algorithm to update only changed nodes.
 
 
-
+---
 
 ### 19. What is useRef in React.js
 
@@ -212,7 +214,7 @@ Hook to store mutable values or access DOM elements directly.
 const inputRef = useRef();
 
 ```
-
+---
 
 ### 20. What is Server-Side Rendering (SSR) in React.js
 
@@ -222,7 +224,7 @@ Benefits: Faster initial load, better SEO.
 
 Example: Next.js uses SSR.
 
-
+---
 
 ### 21. What is useStrict in React.js
 
@@ -231,7 +233,7 @@ It’s actually StrictMode (not hook) in React.
 Helps highlight potential problems (deprecated APIs, unsafe lifecycles).
 
 
-
+---
 
 ### 22. What is Fragment in React.js
 
@@ -243,21 +245,21 @@ Lets you return multiple elements without adding extra DOM nodes.
 
 
 
-
+---
 ### 23. What is React Router
 
 A library for routing in React apps.
 
 Provides <BrowserRouter>, <Route>, <Link>.
 
-
+---
 
 ### 24. What is Node Module in React.js
 
 The node_modules folder contains all installed dependencies for your project.
 
 
-
+---
 
 ### 25. Default Localhost Port in React.js
 
@@ -265,7 +267,7 @@ Default: 3000.
 
 To change: Run PORT=4000 npm start (Linux/Mac) or set in .env.
 
-
+---
 ### 26. What is Higher Order Component (HOC)
 
 Function that takes a component and returns a new component with added features.
@@ -276,19 +278,19 @@ const withLogger = (Component) => (props) => {
 };
 
 ```
-
+---
 ### 27. What is Pure Component
 
 React component that does a shallow comparison of props & state to avoid unnecessary re-renders.
 
-
+---
 ### 28. Difference Between State and Props
 
 State: Internal, mutable data owned by component.
 
 Props: External, immutable data passed from parent.
 
-
+---
 
 ### 29. How to Optimize React.js App
 
@@ -303,28 +305,27 @@ Avoid unnecessary re-renders
 Virtualization (react-window)
 
 
-
+---
 ### 30. React.js vs Angular.js
 
 React: Library, Virtual DOM, unidirectional data flow, JSX.
-
 Angular: Framework, Real DOM + Incremental DOM, two-way binding, TypeScript-based.
 
+---
 
 ### 31. What is Prop Drilling and How to Overcome It
 
 Prop Drilling: Passing props down through many levels of components.
-
 Solution: Context API, Redux, or Zustand.
 
+---
 
 ### 32. What is Context API in React.js
-
 Built-in way to manage global state without prop drilling.
-
 Uses React.createContext + Provider + useContext.
 
 
+---
 ### 33. What is Super, Constructor, Render in React.js
 
 super: Calls parent class constructor (super(props)).
@@ -332,6 +333,353 @@ super: Calls parent class constructor (super(props)).
 constructor: Initialize state, bind methods in class components.
 
 render: Returns JSX (UI) to be displayed.
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 🔚🔚🔚
+---
+# 🆕🆕🆕
+
+
+
+
+
+---
+
+# 🔹 JavaScript 💻✔
+
+#### 1. What is EcmaScript in JavaScript
+
+* **ECMAScript (ES)** is the standardized specification of JavaScript defined by ECMA International.
+* JavaScript is the implementation of ECMAScript.
+* New versions (ES6, ES7, … ES2023) bring features like `let/const`, classes, async/await, modules, etc.
+
+---
+
+#### 2. Difference between `let`, `const`, and `var`
+
+* **var** → function-scoped, hoisted, can be redeclared.
+* **let** → block-scoped, hoisted (but in Temporal Dead Zone), cannot be redeclared in same scope.
+* **const** → block-scoped, must be initialized, cannot be reassigned (but objects/arrays can be mutated).
+
+---
+
+#### 3. Spread operator, Rest operator, Default parameter
+
+* **Spread (`...`)**: Expands arrays/objects.
+
+  ```js
+  const arr = [1, 2, 3];
+  console.log(...arr); // 1 2 3
+  ```
+* **Rest (`...`)**: Collects arguments into an array.
+
+  ```js
+  function sum(...nums) { return nums.reduce((a,b)=>a+b,0); }
+  ```
+* **Default Parameter**: Sets default values in functions.
+
+  ```js
+  function greet(name="Guest"){ return `Hello ${name}`; }
+  ```
+
+---
+
+#### 4. Deep copy vs Shallow copy
+
+* **Shallow copy** → Copies only the first level; nested objects share reference.
+
+  ```js
+  let obj1 = {a:1, b:{c:2}};
+  let shallow = {...obj1};
+  shallow.b.c = 5; // also changes obj1
+  ```
+* **Deep copy** → Copies all levels.
+
+  ```js
+  let deep = JSON.parse(JSON.stringify(obj1));
+  ```
+
+---
+
+#### 5. Promise, Callback, Async/Await
+
+* **Callback**: Function passed as argument, executed later. Can cause “callback hell”.
+* **Promise**: Object representing async operation with `.then/.catch`.
+* **async/await**: Syntactic sugar over Promises for cleaner code.
+
+---
+
+#### 6. Difference between Promise and Callback
+
+* **Callback**: Hard to manage, leads to nested code.
+* **Promise**: Easier chaining, better error handling.
+
+---
+
+#### 7. Event Bubbling vs Event Capturing
+
+* **Bubbling**: Event propagates from child → parent. (default)
+* **Capturing**: Event propagates from parent → child.
+* Controlled via `addEventListener("click", handler, true)`
+
+---
+
+#### 8. Higher Order Function
+
+* A function that takes another function as argument or returns a function.
+
+  ```js
+  function hof(fn){ return fn(); }
+  ```
+
+---
+
+#### 9. Different types of functions in JavaScript
+
+* Function Declaration
+* Function Expression
+* Arrow Function
+* Anonymous Function
+* Constructor Function
+* IIFE (Immediately Invoked Function Expression)
+* Generator Function
+
+---
+
+#### 10. Arrow Function
+
+* Short syntax, doesn’t bind its own `this`.
+
+  ```js
+  const add = (a,b)=>a+b;
+  ```
+
+---
+
+#### 11. Call, Apply, Bind
+
+* **call()** → Calls function with given `this` & arguments.
+* **apply()** → Same but arguments as array.
+* **bind()** → Returns new function with bound `this`.
+
+---
+
+#### 12. Ways to create objects
+
+* Object literal `{}`
+* `new Object()`
+* Constructor function
+* ES6 `class`
+* `Object.create()`
+* Singleton using Object literal
+
+---
+
+#### 13. Prototype Inheritance
+
+* JS objects inherit properties/methods from prototype chain.
+
+---
+
+#### 14. What is TypeScript
+
+* A superset of JavaScript with **static typing**, compiled into JS.
+
+---
+
+#### 15. Array methods & String methods
+
+* **Array**: `map`, `filter`, `reduce`, `push`, `pop`, `slice`, `splice`, `find`, `sort`, `forEach`.
+* **String**: `charAt`, `slice`, `substring`, `split`, `replace`, `toUpperCase`, `trim`.
+
+---
+
+#### 16. Difference between Java and JavaScript
+
+* **Java**: OOP language, compiled, strongly typed.
+* **JavaScript**: Scripting language, interpreted, loosely typed.
+
+---
+
+#### 17. Throttling & Debouncing
+
+* **Debounce**: Delays execution until after user stops triggering.
+* **Throttle**: Executes at fixed intervals, ignores extra calls.
+
+---
+
+#### 18. Null vs Undefined
+
+* **null**: Intentional absence of value.
+* **undefined**: Variable declared but not assigned.
+
+---
+
+#### 19. Falsy values in JS
+
+`false, 0, "", null, undefined, NaN`
+
+---
+
+#### 20. Execution Context, Event Loop, Stack, Queues
+
+* **Execution Context**: Environment where code runs.
+* **Call Stack**: Tracks function execution.
+* **Event Loop**: Moves tasks from queues to stack.
+* **Callback Queue**: Stores async callbacks.
+* **Microtask Queue**: Stores promises/callbacks (higher priority).
+
+---
+
+#### 21. setTimeout vs setInterval
+
+* **setTimeout(fn, ms)** → runs once after delay.
+* **setInterval(fn, ms)** → runs repeatedly at interval.
+
+---
+
+#### 22. Object.seal vs Object.freeze
+
+* **seal**: Prevent adding/removing props, but can modify values.
+* **freeze**: Prevent adding/removing and modifying values.
+
+---
+
+#### 23. Difference between Map and Set
+
+* **Map**: Key-value pairs (keys can be any type).
+* **Set**: Unique values only.
+
+---
+
+#### 24. WeakMap vs WeakSet
+
+* **WeakMap**: Keys must be objects, values can be any. Garbage collected.
+* **WeakSet**: Stores only objects, garbage collected.
+
+---
+
+#### 25. sessionStorage, localStorage, cookie
+
+* **localStorage**: Stores data with no expiry.
+* **sessionStorage**: Stores data for session only.
+* **cookie**: Small data sent with every request, can have expiry.
+
+---
+
+#### 26. Program to sort array
+
+```js
+let arr = [5,2,8,1];
+arr.sort((a,b)=>a-b); // ascending
+```
+
+---
+
+#### 27. JSON.stringify & JSON.parse
+
+* **JSON.stringify(obj)** → Converts JS object to JSON string.
+* **JSON.parse(str)** → Converts JSON string to JS object.
+
+---
+
+#### 28. map, filter, reduce
+
+* **map()**: Transforms array.
+* **filter()**: Returns matching elements.
+* **reduce()**: Reduces array to single value.
+
+---
+
+#### 29. Generator function
+
+* Function that can pause & resume using `yield`.
+
+  ```js
+  function* gen(){ yield 1; yield 2; }
+  ```
+
+---
+
+#### 30. Stop event propagation
+
+```js
+event.stopPropagation();
+```
+
+---
+
+#### 31. Closure
+
+* Function with access to variables of its parent scope even after parent has finished executing.
+
+---
+
+#### 32. Hoisting in JavaScript
+
+* Variables & functions are moved to top of scope before execution.
+
+---
+
+#### 33. Dead Zone in JavaScript
+
+* The period between variable declaration and initialization where accessing gives `ReferenceError`.
+
+---
+
+#### 34. Function Currying
+
+* Breaking function with multiple args into a sequence of functions.
+
+  ```js
+  const add = a=>b=>c=>a+b+c;
+  ```
+
+---
+
+#### 35. Mutation Observer
+
+* API to watch DOM changes.
+
+  ```js
+  const obs = new MutationObserver(cb);
+  obs.observe(node, {childList:true,subtree:true});
+  ```
+
+---
+
+#### 36. Memoization
+
+* Caching results of expensive function calls.
+
+  ```js
+  function memo(fn){
+    let cache={};
+    return function(x){
+      if(cache[x]) return cache[x];
+      return cache[x]=fn(x);
+    }
+  }
+  ```
+
+---
 
 
 
