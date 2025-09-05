@@ -682,4 +682,243 @@ event.stopPropagation();
 ---
 
 
+## ▶▶▶
+
+---
+
+# JavaScript Practice Programs & Interview Q\&A
+
+This file contains frequently asked **JavaScript coding interview questions** with explanations and answers.
+
+---
+
+## 🔹 1. Program to Find Element Occurrence in Array
+
+```js
+const arr = [1, 2, 3, 1, 2, 1, 3];
+const count = {};
+
+arr.forEach(num => {
+  count[num] = (count[num] || 0) + 1;
+});
+
+console.log(count); 
+// 👉 {1: 3, 2: 2, 3: 2}
+```
+
+**Explanation:** We loop over the array and keep increasing the count of each element inside an object.
+
+---
+
+## 🔹 2. Remove Duplicate Items from Array
+
+### Method 1: Using Loop
+
+```js
+const arr = [1, 2, 3, 4, 1, 2];
+const b = [];
+
+for (let i = 0; i < arr.length; i++) {
+  if (b.indexOf(arr[i]) === -1) {
+    b.push(arr[i]);
+  }
+}
+console.log("removed array value", b); // 👉 [1, 2, 3, 4]
+```
+
+### Method 2: Using `filter`
+
+```js
+const arr = [1, 2, 3, 4, 1, 2];
+const b = [];
+
+arr.filter((item) => {
+  if (b.indexOf(item) === -1) {
+    b.push(item);
+  }
+});
+console.log("removed array value", b); // 👉 [1, 2, 3, 4]
+```
+
+### Method 3: Using `Set`
+
+```js
+const arr = [1, 2, 3, 4, 1, 2];
+const unique = [...new Set(arr)];
+console.log(unique); // 👉 [1, 2, 3, 4]
+```
+
+---
+
+## 🔹 3. What will be the Output?
+
+```js
+const firstname = fun();
+let name = 'vivek';
+
+function fun() {
+  return `my is ${name} malviya`;
+}
+
+console.log(firstname);
+```
+
+**Answer:** ❌ This will throw `ReferenceError: Cannot access 'name' before initialization`.
+Because `let` is hoisted but kept in **Temporal Dead Zone** until initialized.
+
+---
+
+## 🔹 4. Program for Output `mul(2)(4)(6)`
+
+### Using Normal Function
+
+```js
+function mul(a) {
+  return function (b) {
+    return function (c) {
+      return a * b * c;
+    };
+  };
+}
+
+console.log("output with normal function", mul(2)(4)(6)); // 👉 48
+```
+
+### Using Arrow Function
+
+```js
+const mul = (a) => (b) => (c) => a * b * c;
+console.log("output with arrow function", mul(2)(4)(6)); // 👉 48
+```
+
+---
+
+## 🔹 5. Promise Example (Resolve if Value < 7)
+
+```js
+function fun(a) {
+  let myPromise = new Promise((myResolve, myReject) => {
+    if (a < 7) {
+      myResolve(`number is given ${a}`);
+    } else {
+      myReject("Error");
+    }
+  });
+
+  myPromise
+    .then((result) => console.log(result))
+    .catch((err) => console.log(err));
+}
+
+fun(5); // 👉 number is given 5
+```
+
+---
+
+## 🔹 6. Multiply Two Numbers Without `*`
+
+```js
+function multiply(a, b) {
+  let result = 0;
+  for (let i = 0; i < Math.abs(b); i++) {
+    result += a;
+  }
+  return b < 0 ? -result : result;
+}
+
+console.log(multiply(5, 3));  // 👉 15
+console.log(multiply(5, -3)); // 👉 -15
+```
+
+---
+
+## 🔹 7. Sorting in JavaScript (Descending Order)
+
+```js
+const arr = [3, 2, 5, 4, 1, 0];
+
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] < arr[j]) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+    }
+  }
+}
+
+console.log("Sorted in descending order:", arr); 
+// 👉 [5, 4, 3, 2, 1, 0]
+```
+
+---
+
+## 🔹 8. Object Keys with Object as Key
+
+```js
+const a = {};
+const b = { key: 'b' };
+const c = { key: 'c' };
+
+a[b] = 123;
+a[c] = 456;
+
+console.log(a[b]); // 👉 456
+```
+
+**Explanation:** Objects used as keys are converted to strings (`[object Object]`), so `a[b]` and `a[c]` overwrite each other.
+
+---
+
+## 🔹 9. Polyfills
+
+### Polyfill for `map`
+
+```js
+Array.prototype.myMap = function (callback) {
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    result.push(callback(this[i], i, this));
+  }
+  return result;
+};
+
+console.log([1, 2, 3].myMap(x => x * 2)); // 👉 [2, 4, 6]
+```
+
+### Polyfill for `filter`
+
+```js
+Array.prototype.myFilter = function (callback) {
+  let result = [];
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this)) {
+      result.push(this[i]);
+    }
+  }
+  return result;
+};
+
+console.log([1, 2, 3, 4].myFilter(x => x % 2 === 0)); // 👉 [2, 4]
+```
+
+### Polyfill for `reduce`
+
+```js
+Array.prototype.myReduce = function (callback, initialValue) {
+  let accumulator = initialValue;
+  for (let i = 0; i < this.length; i++) {
+    accumulator = callback(accumulator, this[i], i, this);
+  }
+  return accumulator;
+};
+
+console.log([1, 2, 3].myReduce((acc, val) => acc + val, 0)); // 👉 6
+```
+
+---
+
+✅ Now you have a **README-ready version** with **questions, explanations, and code**.
+
+Do you also want me to **combine this JavaScript Q\&A + React Q\&A into a single README or PDF cheat sheet** for interviews?
 
