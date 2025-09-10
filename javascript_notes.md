@@ -360,3 +360,187 @@ fetchData();
 > *“Callbacks are the old way of handling async tasks but lead to callback hell. Promises solve this with cleaner chaining. Async/Await, built on Promises, makes code look synchronous and is the most readable approach.”*
 
 ---
+
+
+
+
+
+### 🔹 What is the Event Loop in JavaScript?
+
+👉 The **Event Loop** is a mechanism in JavaScript that allows **non-blocking asynchronous execution**, even though JavaScript itself is **single-threaded**.
+
+It continuously checks:
+
+1. If the **Call Stack** is empty.
+2. If there are any **callbacks or tasks** waiting in the **Callback Queue (Task Queue / Microtask Queue)**.
+3. If so, it moves them into the **Call Stack** to be executed.
+
+This process is called the **event loop cycle**.
+
+---
+
+## 🔹 Key Components
+
+1. **Call Stack**
+
+   * Where JavaScript executes code line by line (synchronous tasks).
+   * Example: normal function calls.
+
+2. **Web APIs (provided by browser / Node.js)**
+
+   * Handle async tasks like `setTimeout`, HTTP requests (`fetch`), event listeners, etc.
+   * These don’t block the main thread.
+
+3. **Callback Queue / Task Queue**
+
+   * Stores completed async tasks (like `setTimeout`, DOM events) until the Call Stack is free.
+
+4. **Microtask Queue**
+
+   * Stores **Promises and async/await callbacks**.
+   * Has **higher priority** than the normal Callback Queue.
+
+---
+
+## 🔹 Example 1 (Basic: setTimeout)
+
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Async Task");
+}, 0);
+
+console.log("End");
+```
+
+👉 Output:
+
+```
+Start
+End
+Async Task
+```
+
+✅ Why?
+
+* `setTimeout` goes to Web APIs → Callback Queue → waits for Call Stack to clear → then Event Loop pushes it back.
+
+---
+
+## 🔹 Example 2 (Microtask vs Callback Queue)
+
+```javascript
+console.log("Start");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise resolved"));
+
+console.log("End");
+```
+
+👉 Output:
+
+```
+Start
+End
+Promise resolved
+setTimeout
+```
+
+✅ Why?
+
+* Promises go to the **Microtask Queue**, which has **higher priority** than the Callback Queue.
+* So `"Promise resolved"` runs before `"setTimeout"`.
+
+---
+
+## 🔹 Interview Answer (Crisp)
+
+> *“The Event Loop in JavaScript manages asynchronous code execution. JavaScript is single-threaded, so the Event Loop allows non-blocking behavior by moving async tasks (like setTimeout, fetch, promises) into queues. When the call stack is empty, the Event Loop pushes tasks from the Microtask Queue (Promises) first, then the Callback Queue (setTimeout, events) back into the stack for execution.”*
+
+---
+
+Perfect 👍 explaining the **Event Loop with a diagram/flowchart** makes this concept super clear in interviews.
+
+---
+
+## 🔹 Event Loop in JavaScript (with Diagram)
+
+JavaScript is **single-threaded**, meaning it executes one thing at a time.
+To handle **asynchronous tasks** (like timers, promises, and API calls), the **Event Loop** coordinates between:
+
+1. **Call Stack**
+2. **Web APIs** (provided by browser/Node.js)
+3. **Callback Queue (Task Queue)**
+4. **Microtask Queue** (for promises/async-await)
+
+---
+
+### 🔹 Flow Diagram
+
+```
+          ┌────────────────────┐
+          │    Call Stack      │  ← Executes code line by line
+          └─────────┬──────────┘
+                    │
+        ┌───────────▼────────────┐
+        │    Web APIs (Browser)  │  ← Handles async tasks (setTimeout, fetch, DOM events)
+        └───────────┬────────────┘
+                    │
+        ┌───────────▼────────────┐
+        │   Callback Queue       │  ← Normal async tasks (setTimeout, events)
+        └───────────┬────────────┘
+                    │
+        ┌───────────▼────────────┐
+        │   Microtask Queue      │  ← Promises, async/await (higher priority)
+        └───────────┬────────────┘
+                    │
+          ┌─────────▼─────────┐
+          │    Event Loop     │  ← Moves tasks to Call Stack
+          └───────────────────┘
+```
+
+---
+
+### 🔹 Example with Flow
+
+```javascript
+console.log("Start");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise resolved"));
+
+console.log("End");
+```
+
+**Execution flow:**
+
+1. `"Start"` → goes to Call Stack → prints.
+2. `setTimeout` → sent to Web APIs → waits → then moves to **Callback Queue**.
+3. `Promise` → resolved immediately → goes to **Microtask Queue**.
+4. `"End"` → prints.
+5. Event Loop checks: Microtask Queue first → prints `"Promise resolved"`.
+6. Then Callback Queue → prints `"setTimeout"`.
+
+👉 **Output:**
+
+```
+Start
+End
+Promise resolved
+setTimeout
+```
+
+---
+
+## 🎯 Interview Answer (Short & Crisp)
+
+> *“The Event Loop is what makes JavaScript non-blocking. JavaScript runs on a single thread, so synchronous code goes to the Call Stack. Asynchronous tasks (like timers, fetch, promises) are handled by Web APIs, then pushed to queues. The Event Loop constantly checks: if the Call Stack is empty, it pushes tasks from the Microtask Queue first (Promises, async/await), then from the Callback Queue (setTimeout, events).”*
+
+---
+
+
+
